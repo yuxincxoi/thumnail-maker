@@ -1,18 +1,55 @@
-img {
-  width: 960px;
-  height: 500px;
+/* font-family: 'Hahmlet', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@700&display=swap');
+
+input {
+  border: none;
+  text-align: center;
 }
 
-/* .title {
-  position: fixed;
-  z-index: 1000;
-  margin-left: 50%;
-  margin-top: 30%;
-} */
+.input-title {
+  width: 180px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.thumbnail {
+  width: 960px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+ .thumbnail h1, h3 {
+  width: 960px;
+  height: 50px;
+  text-align: center;
+  text-shadow: 3px 3px 3px rgb(93, 93, 93);
+  font-weight: bold;
+  color: white;
+  font-family: 'Hahmlet', serif;
+}
+
+.thumbnail h1 {
+  font-size: 80px;
+  line-height: 400px;
+}
+
+.thumbnail h3 {
+  font-size: 30px;
+  line-height: 360px;
+}
+
+.buttons {
+  width: 500px;
+  margin: 0 auto;
+}
 
 button {  
   background-color: transparent;
   border: none;
+  margin: 30px 90px;
 }
 
 button img {
