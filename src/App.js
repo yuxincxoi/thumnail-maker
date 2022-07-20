@@ -4,21 +4,36 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [back, setBack] = useState("");
+  const back = document.querySelector(".thumbnail");
+  const [gradient, setGradient] = useState("");
+  const [color, setColor] = useState("");
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeSubtitle = (e) => setSubtitle(e.target.value);
-  const changeColor = () => {
-    const firstColor = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`
-    const secondColor = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`
+  const randomRgb = () => {
+    let rgb = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
 
-    setBack(`linear-gradient(45deg, ${firstColor}, ${secondColor})`)
+    return rgb;
+  };
+  const changeColor = () => {
+    const randomColor = randomRgb();
+
+    setColor(randomColor);
+    back.style.background = color;
+  };
+  const changeGradient = () => {
+    const firstColor = randomRgb();
+    const secondColor = randomRgb();
+    const gradientColor = `linear-gradient(45deg, ${firstColor}, ${secondColor})`;
+
+    setGradient(gradientColor);
+    back.style.background = gradient;
   };
   return (
     <div>
       <h1 className="title">Thumbnail Maker</h1>
-      <div className="thumbnail" style={{backgroundImage: `${back}`}}>
+      <div className="thumbnail">
         <h1>{title}</h1>
         <h3>{subtitle}</h3>
       </div>
@@ -27,7 +42,8 @@ function App() {
         <input onChange={onChangeSubtitle} placeholder="내용을 입력하세요 !" value={subtitle} type="text"></input>
       </div>
       <div className="buttons">
-        <button onClick={changeColor}><img src={icon_color} alt="" /></button>
+        <button onClick={changeGradient}><img src={icon_color} alt="" /></button>
+        <button onClick={changeColor}>only ONE Color</button>
         <button><img src={icon_blackwhite} alt=""/></button>
       </div>
     </div>
